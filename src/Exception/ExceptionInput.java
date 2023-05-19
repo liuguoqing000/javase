@@ -1,4 +1,4 @@
-package com.demo;
+package Exception;
 
 import java.util.Scanner;
 
