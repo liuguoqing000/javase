@@ -1,11 +1,11 @@
-package Thread;
+package thread;
 
 /**
  * @author 刘国庆
  * @date 2023/5/17
  * @desc 通过实现Runnable接口创建线程
  */
-public class implRunnable {
+public class ImplRunnable {
     public static void main(String[] args) {
         Dog dog = new Dog();
         Thread thread = new Thread(dog);
