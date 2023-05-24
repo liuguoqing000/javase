@@ -8,10 +8,7 @@ import java.util.Scanner;
  */
 public class test {
     public static void main(String[] args) {
-        A a = new A();
-        B b = new B(a);//一定要注意.
-        a.start();
-        b.start();
+
     }
 }
 
