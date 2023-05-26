@@ -67,14 +67,6 @@ boolean c = Boolean.parseBoolean(str);
 char d = str.charAt(0);
 ```
 
-## 日期调用
-
-```java
-Date date = new Date();
-SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd HH:mm");	//	大写H表示24小时制，小写h表示12小时制
-System.out.println(sdf.format(date));
-```
-
 ## 可变参数
 
 - 可变参数本质是数组
@@ -400,12 +392,13 @@ class Cat {
         this.name = name;
     }
 
-    public static Cat getCat() {
+    public static Cat getInstance() {
         if(cat == null) {
             cat = new Cat("Tom");
         }
         return cat;
     }
+}
 ```
 
 ## final
@@ -629,10 +622,10 @@ class ageException extends RuntimeException {
 
 ## throw & throws
 
-|        | 意义                         | 位置       | 后面跟的关键字                    |      |
-| ------ | ---------------------------- | ---------- | --------------------------------- | ---- |
-| throws | 异常处理的一种方式           | 方法声明处 | 异常类型，如throws Exception      |      |
-| throw  | 用于手动生成异常对象的关键字 | 方法体内   | 异常对象，如throw new Exception() |      |
+|        | 意义                         | 位置       | 后面跟的关键字                                       |      |
+| ------ | ---------------------------- | ---------- | ---------------------------------------------------- | ---- |
+| throws | 异常处理的一种方式           | 方法声明处 | 异常类型，如throws Exception                         |      |
+| throw  | 用于手动生成异常对象的关键字 | 方法体内   | 异常对象，如throw new RuntimeException("参数不正确") |      |
 
 # 常用类
 
@@ -669,10 +662,13 @@ class ageException extends RuntimeException {
 
 + String str = "abc"  与 String str = new String("abc")  的区别
 
-  > P467 -
-  P470    [0467_韩顺平Java_String测试题1_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1fh411y7R8/?p=468&spm_id_from=pageDriver&vd_source=31a2c1c1b88c213ffcdc490b3eed651c)
+  ```java
+  String s1 = "aaa";
+  String s2 = "bbb" + s1;
+  // s2的内存布局与new String("aaabbb")一样，而非普通的String
+  ```
 
->
+  > [练习P467 -P470](https://www.bilibili.com/video/BV1fh411y7R8/?p=468&spm_id_from=pageDriver&vd_source=31a2c1c1b88c213ffcdc490b3eed651c)
 
 + [String常用方法](src/CommonClass/StringMethods.java)
 
@@ -714,7 +710,21 @@ System.out.println("执行时间为：" + (end - start));
 + [BigInteger使用](src/CommonClass/BigInteger_.java)
 + [BigDecimal使用](src/CommonClass/BigDecimal_.java)
 
-## Date & Calendar & LocalDate
+## Date & Calendar & LocalDateTime
+
+推荐使用LocalDateTime，[用法](src/CommonClass/Date.java)
+
+```java
+/* 如何获取当前日期 */
+//1.Date类
+Date date=new Date();
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss E");
+        System.out.println(sdf.format(date));
+//2.LocalDateTime类
+        LocalDateTime ldt=LocalDateTime.now(); //LocalDate.now();//LocalTime.now()
+        DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        System.out.println(dateTimeFormatter.format(ldt));
+```
 
 # Thread
 
@@ -888,24 +898,24 @@ class Cat extends Thread {
 
 # IO流
 
-## 创建文件
+## 文件
 
-[代码](src\file\FileCreate.java)
++ [创建文件](src\file\FileCreate.java)
 
-## 文件常用方法
++ 常用方法
 
-```java
-getName();
-getAbsolutePath();
-getParent();
-getlength();	// 单位为字节
-exists();	// 返回布尔值
-isFile();	
-isDirectory();
-mkdir();	// 创建一级目录，返回布尔值
-mkdirs();	// 创建多级目录，返回布尔值
-delete();	// 删除空目录或文件，返回布尔值
-```
+  ```java
+  getName();
+  getAbsolutePath();
+  getParent();
+  getlength();	// 单位为字节
+  exists();	// 返回布尔值
+  isFile();	
+  isDirectory();
+  mkdir();	// 创建一级目录，返回布尔值
+  mkdirs();	// 创建多级目录，返回布尔值
+  delete();	// 删除空目录或文件，返回布尔值
+  ```
 
 ## IO流类图
 
@@ -913,21 +923,40 @@ delete();	// 删除空目录或文件，返回布尔值
 
 ## FileInputStream
 
-[代码](src\IOStream\FileInputStream_.java)
++ [FileInputStream](src\IOStream\FileInputStream_.java)
++ [FileOutputStream](src\IOStream\FileOutputStream_.java)
 
-## FileOutputStream
+## FileReaderFileWriter
 
-[代码](src\IOStream\FileOutputStream_.java)
++ [FileReader](src\IOStream\FileReader_.java)
++ [FileWriter](src\IOStream\FileWriter_.java)
 
-## FileReader
-
-[代码](src\IOStream\FileReader_.java)
-
-## FileWriter
-
-[代码](src\IOStream\FileWriter_.java)
++ FileWriter使用后必须要close或flush，否则写入失败
 
 ## 节点流 / 包装流
 
 + 节点流：从特定数据源读写数据，如FileReader、FilrWriter
 + 包装流：又称处理流，包装了各种节点流，如BufferedWriter、BufferedReader
++ 序列化：在保存数据时，既保存数值又保存数据类型
++ 反序列化：在恢复数据时，既恢复数值又恢复数据类型
+
+### BufferedReader & BufferedWriter
+
++ [BufferedReader](src/IOStream/BufferedReader_.java)
++ [BufferedWriter](src/IOStream/BufferedWriter_.java)
+
+### BufferedInputStream & BufferedOutputStream
+
+### ObjectInputStream & ObjectOutputStream
+
++ [ObjectInputStream使用实例](src/IOStream/ObjectInputStream_.java)
++ [ObjectOutputStream使用实例](src/IOStream/ObjectOutputStream_.java)
++ [细节](src/IOStream/Dog.java)
+
+### System.in & System.out
+
+|            | 编译类型    | 运行类型            | 数据源 |
+| ---------- | ----------- | ------------------- | ------ |
+| System.in  | InputStream | BufferedInputStream | 键盘   |
+| System.out | PrintStream | PrintStream         | 显示器 |
+

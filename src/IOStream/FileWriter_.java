@@ -2,6 +2,7 @@ package IOStream;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * @author 刘国庆
@@ -11,7 +12,7 @@ import java.io.IOException;
 
 public class FileWriter_ {
     public static void main(String[] args) throws IOException {
-        m1();
+        m2();
     }
 
     public static void m1() throws IOException {
@@ -31,6 +32,7 @@ public class FileWriter_ {
     }
 
     public static void m2() {
-
+        char[] chs = new char[]{'1', '2', '3'};
+        System.out.println(new String(chs));
     }
 }
