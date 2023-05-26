@@ -1,14 +1,18 @@
 # Project Structure
 
-## Directory
+```mermaid
+graph TB
+	javase --> /src
+	javase --> log.md
+	javase --> notes.md
+	javase --> others
+```
 
-/src code demos
+**/src:** code demos
 
-## Markdown
+**log.md:** a log used to record the progress of javase learning
 
-LOG.md A log used to record the progress of javase learning
-
-NOTES.md As its name suggests
+**NOTES.md:** as its name suggests
 
 
 
