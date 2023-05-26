@@ -1,9 +1,9 @@
-package CommonClasses;
+package CommonClass;
 
 /**
  * @author 刘国庆
  * @date 2023/5/24
- * @desc
+ * @desc 包装类和String类的转换。以Integer为例
  */
 public class IntegerToString {
     public static void main(String[] args) {

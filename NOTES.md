@@ -48,12 +48,9 @@ graph LR
 ## 键盘输入
 
 ```java
-Scanner sc = new Scanner(System.in);//
-// String
+Scanner sc = new Scanner(System.in);
 String str = sc.next();
-// char
 char ch = sc.next().charAt(0);
-// 基本数据类型
 int a = myScanner.nextInt();
 ```
 
@@ -70,21 +67,6 @@ boolean c = Boolean.parseBoolean(str);
 char d = str.charAt(0);
 ```
 
-## 数组
-
-```java
-int[] a = new int[5];
-int[5][] a;
-```
-
-## 随机数
-
-```java
-int min = 31;
-int max = 37;
-int num = min + (int) (Math.random() * (max - min + 1));
-```
-
 ## 日期调用
 
 ```java
@@ -98,12 +80,10 @@ System.out.println(sdf.format(date));
 - 可变参数本质是数组
 
   ```java
-  public void test(int... nums) {
-      System.out.println(nums.length);
-  }
+  public void test(int... nums) { System.out.println(nums.length); }
   ```
 
-- 形参列表中，可变参数必须垫底，且最多只有1个可变参数
+- 形参列表中：可变参数必须垫底，且最多只有1个可变参数
 
 ## 全局变量 & 局部变量
 
@@ -111,14 +91,7 @@ System.out.println(sdf.format(date));
 - 局部变量：一般指方法中的变量，需初始化
 - 两者可同名，访问时采用就近原则
 
-## 计算程序运行时间
 
-```java
-long start = System.currentTimeMillis();
-/* 执行的程序 */
-long end = System.currentTimeMillis();
-System.out.println("执行时间为：" + (end - start));
-```
 
 # OOP
 
@@ -276,14 +249,16 @@ System.out.println("执行时间为：" + (end - start));
 
 - 当输出一个对象时，会自动调用toString
 
-#### equals 与 == 区别
+#### equals与==区别
 
 - ==
   - 基本数据类型：判断值相等（不要求类型严格相同）
   - 引用数据类型：只有指向同一个对象时才返回true（不可用于无父子关系的对象间的比较）
 - equals()
   - 只能用于引用数据类型，与 == 的作用相同
-  - 一般重写为“比较两个对象的实体内容是否相同”，如String类
+  - 一般重写为“比较两个对象的实体内容是否相同”，如**String类**
+
+[equals和==区别](# equals和==区别)
 
 ## static
 
@@ -494,9 +469,7 @@ class Cat {
 
 ## 接口多态
 
-+ 多态数组
-
-  [代码](src/interface_/PolyArray.java)
++ [多态数组](src/interface_/PolyArray.java)
 
 + 多态传递
 
@@ -524,24 +497,16 @@ class Cat {
 **静态内部类(有static修饰)**
 
 + 只可访问外部类的静态成员
-
 + ...... `外部类名.成员名`(因为是静态类，this是对象实例的意思)
++ [代码：外部其他类访问成员内部类和静态内部类的两种方式](src/inner_class/StaticInnerClass.java)
 
-**[代码：外部其他类访问成员内部类和静态内部类的两种方式](src/inner_class/StaticInnerClass.java)**
+# 枚举和注解
 
-# 枚举
-
-## 如何使用
+## [enum使用](src/enum_/EnumUse.java)
 
 + 使用enum关键字时将默认继承`enum`类，因此不可再继承其他类
 
-[代码](src/enum_/EnumUse.java)
-
-## 常用方法
-
-[代码](src/enum_/EnumMethod.java)
-
-# 注解
+## [enum常用方法](src/enum_/EnumMethod.java)
 
 ## @Override
 
@@ -694,31 +659,62 @@ class ageException extends RuntimeException {
   int k = integer;
   ```
 
-+ 包装类 <-> String类
++ [包装类 <-> String类：Integer <-> String](src/CommonClass/IntToString.java)
 
-[代码：Integer <-> String](src/CommonClasses/IntToString.java)
++ [常用方法](src/CommonClass/CommonWrapperMethods.java)
 
-+ 常用方法
+## String & StringBuffer & StringBuilder
 
-[代码：常用方法](src/CommonClasses/CommonWrapperMethods.java)
++ equals 与 == 的区别
 
-## String
++ String str = "abc"  与 String str = new String("abc")  的区别
 
-测试以下
+  > P467 -
+  P470    [0467_韩顺平Java_String测试题1_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1fh411y7R8/?p=468&spm_id_from=pageDriver&vd_source=31a2c1c1b88c213ffcdc490b3eed651c)
 
-## StringBuffer
+>
 
-## StringBuilder
++ [String常用方法](src/CommonClass/StringMethods.java)
+
+  [StringBuffer常用方法](src/CommonClass/StringBufferMethods.java)
+
++ 三者的区别
+
+  ![String StringBuilder StringBuffer区别](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/String%20StringBuilder%20StringBuffer%E5%8C%BA%E5%88%AB.png)
+
+## Math
+
++ [常用方法](src/CommonClass/MathMethod.java)
+
++ 随机数
+
+  ```java
+  int min = 31;
+  int max = 37;
+  int num = (int)(min + Math.random() * (max - min + 1));
+  ```
 
 ## Arrays
 
++ [常用方法1](src/CommonClass/ArraysMethod01.java)
+
++ [常用方法2](src/CommonClass/ArraysMethod02.java)
+
 ## System
 
-## Date、Calendar、LocalDate
+```java
+long start = System.currentTimeMillis();
+/* 执行的程序 */
+long end = System.currentTimeMillis();
+System.out.println("执行时间为：" + (end - start));
+```
 
-# 集合
+## BigInteger & BigDecimal
 
-# 泛型
++ [BigInteger使用](src/CommonClass/BigInteger_.java)
++ [BigDecimal使用](src/CommonClass/BigDecimal_.java)
+
+## Date & Calendar & LocalDate
 
 # Thread
 
