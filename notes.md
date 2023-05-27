@@ -726,6 +726,10 @@ Date date=new Date();
         System.out.println(dateTimeFormatter.format(ldt));
 ```
 
+# 集合
+
+# 泛型
+
 # Thread
 
 Thread类实现了Runnable
@@ -921,12 +925,12 @@ class Cat extends Thread {
 
 ![图片](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/%E5%9B%BE%E7%89%87-16849167184561.png)
 
-## FileInputStream
+## FileInputStream & FileOutputStream
 
 + [FileInputStream](src\IOStream\FileInputStream_.java)
 + [FileOutputStream](src\IOStream\FileOutputStream_.java)
 
-## FileReaderFileWriter
+## FileReader & FileWriter
 
 + [FileReader](src\IOStream\FileReader_.java)
 + [FileWriter](src\IOStream\FileWriter_.java)
@@ -939,24 +943,82 @@ class Cat extends Thread {
 + 包装流：又称处理流，包装了各种节点流，如BufferedWriter、BufferedReader
 + 序列化：在保存数据时，既保存数值又保存数据类型
 + 反序列化：在恢复数据时，既恢复数值又恢复数据类型
++ 纯文本数据字符流效率更高，且可以有效解决中文乱码问题；
++ 二进制文件使用字节流
 
-### BufferedReader & BufferedWriter
+## BufferedReader & BufferedWriter ***
 
 + [BufferedReader](src/IOStream/BufferedReader_.java)
 + [BufferedWriter](src/IOStream/BufferedWriter_.java)
 
-### BufferedInputStream & BufferedOutputStream
+## BufferedInputStream & BufferedOutputStream
 
-### ObjectInputStream & ObjectOutputStream
+## ObjectInputStream & ObjectOutputStream
 
 + [ObjectInputStream使用实例](src/IOStream/ObjectInputStream_.java)
 + [ObjectOutputStream使用实例](src/IOStream/ObjectOutputStream_.java)
 + [细节](src/IOStream/Dog.java)
 
-### System.in & System.out
+## InputStreamReader & OutputStreamWriter
+
++ 可用来解决字符乱码问题
++ [BufferedReader使用实例](src/IOStream/BufferedReader_.java)
+
+## PrintStream
+
++ 字节流
+
++ [使用](src/IOStream/PrintStream_.java)
+
+## PrintWriter
+
++ 字符流
++ [使用](src/IOStream/PrintWriter_.java)
+
+## System.in & System.out
 
 |            | 编译类型    | 运行类型            | 数据源 |
 | ---------- | ----------- | ------------------- | ------ |
 | System.in  | InputStream | BufferedInputStream | 键盘   |
 | System.out | PrintStream | PrintStream         | 显示器 |
+
+## Properties
+
++ [使用](src/IOStream/Properties_.java)
+
+# 反射
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

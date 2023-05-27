@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 public class BufferedReader_ {
     public static void main(String[] args) throws IOException {
-        String filename = "D:\\a.txt";
+        String filename = "C:\\Users\\DELL\\Desktop\\a.txt";
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
         String line;
         while ((line = bufferedReader.readLine()) != null) {
