@@ -728,6 +728,101 @@ Date date=new Date();
 
 # 集合
 
+```mermaid
+graph TB
+	Collection接口 --> List接口
+	Collection接口 --> Set接口
+	List接口 --> ArrayList类
+	List接口 --> LinkedList类
+	List接口 --> Vector类
+	Set接口 --> HashSet类
+	Set接口 --> LinkedHashSet类类
+	Set接口 --> TreeSet类
+	Map接口 --> HashMap类
+	HashMap类 --> LinkedHashMap类
+    Map接口 --> HashTable类
+    HashTable类 --> Properties类
+    Map接口 --> TreeMap类
+```
+
++ 集合分为 单列集合 & 双列集合
+  + Collection接口的子接口List和Set为单列集合
+  + Map接口的实现子类为双列集合，存放K-V
+
+## Collection
+
++ [常用方法](src/Collection_/CollectionMethods.java)
+
+  ```java
+  List list = new ArrayList();
+  list.add(new Book("wa","b",5));
+  list.add("dsa");
+  // 1.iterator迭代器遍历
+  // 快捷键：itit
+  Iterator iterator = list.iterator();
+  while (iterator.hasNext()) {
+      Object next = iterator.next();
+      System.out.println(next);
+  }
+  // 2.for增强遍历
+  // 快捷键：list.for或I或list.iter
+  for(Object book:list){
+      System.out.println(book);
+  }
+  // 3.普通for
+  for (int i = 0; i < list.size(); i++) {
+      System.out.println(list.get(i));
+  }
+  ```
+
+## List
+
++ 可重复 / 有序：添加顺序与取出顺序一致
++ 常用方法与Collection一致
+
+**ArrayList**
+
++ 底层为 `Object[] elementData`数组
++ ArrayList基本等同于Vector。效率高但线程不安全
++ 扩容机制
+  + 无参构造器：初始容量为0，第一次添加扩容为10；以后每次扩为1.5倍
+  + 指定大小构造器：每次扩为1.5倍
+
+**Vector**
+
++ 底层为 `Object[] elementData`数组
++ 考虑线程安全时，使用vector
++ 扩容机制
+  + 与ArrayList类似，但是把1.5变为2
+
+## Set
+
++ 无序：添加和去除的顺序不一致 / 无索引 / 不允许重复元素 / 最多包含一个null
++ 常用方法与Collection一致
+
+## HashSet
+
++ 本质上是HashMap / 只能存放一个null / 不重复 / 无序
++ 底层机制
+  + 先获取要添加的的元素的hashCode()值
+  + 对哈希表进行运算，得到的索引值即为要存在哈希表中的位置号
+  + 如果该位置为空，直接存放；不为空则进行equals判断
+    + 相等则不再添加
+    + 不等则以链表的方式添加
++ [练习](src/Collection_/HashSetExercise.java)
+
+## HashMap
+
+## Hashtable
+
+## LinkedHashMap
+
+## TreeMap
+
+## Properties
+
+## Collections
+
 # 泛型
 
 # Thread
