@@ -11,10 +11,14 @@ import java.util.Set;
  */
 public class HashSetExercise {
     public static void main(String[] args) {
-        HashSet set = new HashSet();
+        Set set = new HashSet();
         set.add(new Person("tom", 18));
-
-
+        set.add(new Person("tom", 20));
+        set.add(new Person("hhh", 18));
+        set.add(new Person("tom", 18));
+        for (Object o : set) {
+            System.out.println(o);
+        }
     }
 }
 
@@ -25,6 +29,14 @@ class Person {
     public Person(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 
     @Override
