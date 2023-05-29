@@ -44,7 +44,7 @@ class Person {
         if (this == o) return true;
         if (!(o instanceof Person)) return false;
         Person person = (Person) o;
-        return age == person.age && name.equals(person.name);
+        return age == person.age && Objects.equals(name, person.name);
     }
 
     @Override

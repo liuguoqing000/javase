@@ -751,7 +751,7 @@ graph TB
 
 ## Collection
 
-+ [常用方法](src/Collection_/CollectionMethods.java)
++ [常用方法及遍历方式](src/Collection_/CollectionMethods.java)
 
   ```java
   List list = new ArrayList();
@@ -777,51 +777,68 @@ graph TB
 
 ## List
 
-+ 可重复 / 有序：添加顺序与取出顺序一致
++ 可重复 / 有序(添加顺序与取出顺序一致)
 + 常用方法与Collection一致
 
 **ArrayList**
 
-+ 底层为 `Object[] elementData`数组
-+ ArrayList基本等同于Vector。效率高但线程不安全
-+ 扩容机制
-  + 无参构造器：初始容量为0，第一次添加扩容为10；以后每次扩为1.5倍
-  + 指定大小构造器：每次扩为1.5倍
++ ArrayList基本等同于Vector
++ 但线程不安全
 
 **Vector**
 
-+ 底层为 `Object[] elementData`数组
-+ 考虑线程安全时，使用vector
-+ 扩容机制
-  + 与ArrayList类似，但是把1.5变为2
++ 线程安全
 
 ## Set
 
 + 无序：添加和去除的顺序不一致 / 无索引 / 不允许重复元素 / 最多包含一个null
 + 常用方法与Collection一致
 
-## HashSet
+**HashSet**
 
 + 本质上是HashMap / 只能存放一个null / 不重复 / 无序
-+ 底层机制
-  + 先获取要添加的的元素的hashCode()值
-  + 对哈希表进行运算，得到的索引值即为要存在哈希表中的位置号
-  + 如果该位置为空，直接存放；不为空则进行equals判断
-    + 相等则不再添加
-    + 不等则以链表的方式添加
++ 底层为hashmap，只不过value为常量，机制：
+    + 先获取要添加的的元素的hashCode()值
+    + 对哈希表进行运算，得到的索引值即为要存在哈希表中的位置号
+    + 如果该位置为空，直接存放；不为空则进行equals判断
+        + 相等则不再添加
+        + 不等则以链表的方式添加
 + [练习](src/Collection_/HashSetExercise.java)
 
-## HashMap
+## Map
 
-## Hashtable
++ key不重复且最多只有一个null，value可重复且null的数量无限制
 
-## LinkedHashMap
++ 无序
 
-## TreeMap
++ 常用String类作为key
 
-## Properties
++ 通过put添加，而非add
 
-## Collections
+  ```java
+  // 当重复添加时，value会被替换掉，而不是加不进去
+  map.put("no1","aaa");
+  map.put("no1","bbb");
+  ```
+
++ [常用方法及遍历方式](src/Collection_/MapMethods.java)
+
++ 一个Map.Entry就是一个node。node包含一个键值对。entrySet包含所有的node，但并不是说entrySet的一个元素就是一个node，需要把该元素转换一下才是一个Map.Entry即node
+
+**HashMap**
+
++ **使用频率最高**
++ 线程不安全
+
+**HashTable**
+
++ 键和值都不能为null
++ 线程安全
+
+**Properties**
+
++ 使用特点与HashTable类似
++ 可用于读取xxx.properties配置文件
 
 # 泛型
 
