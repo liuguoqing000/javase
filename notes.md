@@ -83,8 +83,6 @@ char d = str.charAt(0);
 - 局部变量：一般指方法中的变量，需初始化
 - 两者可同名，访问时采用就近原则
 
-
-
 # OOP
 
 ## 继承
@@ -861,14 +859,16 @@ graph TB
         + 排序：TreeSet
         + 插入和取出顺序一致：LinkedHashSet
 + 双列：Map接口
-    + 键无序：HashMap
-    + 键排序：TreeMap
-    + 见插入顺序和取出顺序一致：LinkedHashMap
-    + 读取文件：Properties
+  + 键无序：HashMap
+  + 键排序：TreeMap
+  + 见插入顺序和取出顺序一致：LinkedHashMap
+  + 读取文件：Properties
 
 ## Collections工具类
 
 + [常用方法](src/Collection_/Collections_.java)
+
++ [集合练习题](src/Collection_/exercise)
 
 # 泛型
 
@@ -1129,6 +1129,10 @@ class Cat extends Thread {
 + [使用](src/IOStream/Properties_.java)
 
 # 反射
+
+# JAVA8
+
+# MySQL
 
 
 
