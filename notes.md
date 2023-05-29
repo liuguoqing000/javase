@@ -805,6 +805,11 @@ graph TB
         + 不等则以链表的方式添加
 + [练习](src/Collection_/HashSetExercise.java)
 
+**TreeSet**
+
++ 底层为TreeMap
++ [排序实例](src/Collection_/TreeSetMethods.java)
+
 ## Map
 
 + key不重复且最多只有一个null，value可重复且null的数量无限制
@@ -837,8 +842,33 @@ graph TB
 
 **Properties**
 
-+ 使用特点与HashTable类似
++ HashTable子类，使用特点与HashTable类似
 + 可用于读取xxx.properties配置文件
+
+**TreeMap**
+
++ TreeSet父类，使用与之类似
++ [排序示例](src/Collection_/TreeMapMethods.java)
+
+## 集合选型
+
++ 单列：Collection接口
+    + 允许重复：List
+        + 增删多：LinkedList
+        + 改查多：ArrayList
+    + 不允许重复：Set
+        + 无序：HashSet
+        + 排序：TreeSet
+        + 插入和取出顺序一致：LinkedHashSet
++ 双列：Map接口
+    + 键无序：HashMap
+    + 键排序：TreeMap
+    + 见插入顺序和取出顺序一致：LinkedHashMap
+    + 读取文件：Properties
+
+## Collections工具类
+
++ [常用方法](src/Collection_/Collections_.java)
 
 # 泛型
 
