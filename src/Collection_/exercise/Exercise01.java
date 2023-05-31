@@ -31,6 +31,7 @@ public class Exercise01 {
             // 故此处需要向下转型
             News news = (News) arrayList.get(i);
             System.out.println(processTitle(news.getTitle()));
+            //可通过泛型解决
         }
     }
 

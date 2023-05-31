@@ -83,6 +83,13 @@ char d = str.charAt(0);
 - 局部变量：一般指方法中的变量，需初始化
 - 两者可同名，访问时采用就近原则
 
+## 获取类名
+
+```java
+new car().getClass().getSimpleName();//获取类名
+new car().getClass();//获取包名及类名
+```
+
 # OOP
 
 ## 继承
@@ -242,13 +249,15 @@ char d = str.charAt(0);
 #### equals与==区别
 
 - ==
-  - 基本数据类型：判断值相等（不要求类型严格相同）
-  - 引用数据类型：只有指向同一个对象时才返回true（不可用于无父子关系的对象间的比较）
+    - 基本数据类型：判断值相等（不要求类型严格相同）
+    - 引用数据类型：只有指向同一个对象时才返回true（不可用于无父子关系的对象间的比较）
 - equals()
-  - 只能用于引用数据类型，与 == 的作用相同
-  - 一般重写为“比较两个对象的实体内容是否相同”，如**String类**
+    - 只能用于引用数据类型，与 == 的作用相同
+    - 一般重写为“比较两个对象的实体内容是否相同”，如**String类**
 
 [equals和==区别](# equals和==区别)
+
+![image-20230531203906369](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/image-20230531203906369.png)
 
 ## static
 
@@ -277,7 +286,7 @@ public static void test() {}
 System.out.println(DEMO.test());
 ```
 
-## psvm
+## main
 
 **public static void main(String[] args)**
 
@@ -449,7 +458,9 @@ class Cat {
   ```
 
 + 一个类可实现多个接口
+
 + 接口中所有属性均为 **`public static final `**
+
 + 接口可以继承接口，注意是继承而是实现
 
 ## 继承类 VS 实现接口
@@ -521,6 +532,8 @@ class Cat {
 ```
 
 # Exception
+
+![image-20230531204611180](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/image-20230531204611180.png)
 
 <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>T</kbd>  + <kbd>6</kbd>
 
@@ -627,6 +640,8 @@ class ageException extends RuntimeException {
 
 # 常用类
 
+![image-20230531204536052](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/image-20230531204536052.png)
+
 ## 包装类
 
 + 八大包装类为：Byte Short Integer Long Float Double Character Boolean
@@ -725,6 +740,8 @@ Date date=new Date();
 ```
 
 # 集合
+
+![image-20230531204133396](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/image-20230531204133396.png)
 
 ```mermaid
 graph TB
@@ -872,7 +889,30 @@ graph TB
 
 # 泛型
 
+![image-20230531203620232](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/image-20230531203620232.png)
+
++ 可用于接口，类，参数类型，方法返回类型
++ [使用实例](src/Generic/GenericUse.java)
++ 泛型只能是引用类型，如只能是Integer而不能是int
++ 传递泛型时可以传该类型也可以传该类型的子类
++ 未指定泛型时默认为Object
++ 编译类型是泛型，由于子类也可被传递，因此需要用instanceof判断其运行类型
+
+## 自定义泛型
+
++ [使用示例](src/Generic/GenericCustomed.java)
+
+## 继承和通配
+
++ 通配符就是?
+
++ <?>表示接收任意泛型
++ <? extends AA>表示接受AA及AA的所有子类
++ <? super AA>表示支持AA及AA的父类
+
 # Thread
+
+![image-20230531204321209](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/image-20230531204321209.png)
 
 Thread类实现了Runnable
 
@@ -1044,6 +1084,8 @@ class Cat extends Thread {
 
 # IO流
 
+![image-20230531204358653](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/image-20230531204358653.png)
+
 ## 文件
 
 + [创建文件](src\file\FileCreate.java)
@@ -1129,6 +1171,8 @@ class Cat extends Thread {
 + [使用](src/IOStream/Properties_.java)
 
 # 反射
+
+![image-20230531204445994](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/image-20230531204445994.png)
 
 # JAVA8
 

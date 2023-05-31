@@ -35,6 +35,7 @@ class OuterClass {
             @Override
             public void cry() {
                 System.out.println("狗叫");
+                System.out.println("dd");
             }
         };
         dog.cry();

@@ -35,8 +35,6 @@ public class Exercise04 {
 }
 
 class Person implements Comparable {
-
-
     @Override
     public int compareTo(Object o) {
         return 0;
