@@ -531,7 +531,7 @@ class Cat {
 @SuppressWarnings({"all"})
 ```
 
-# Exception
+# 异常
 
 ![image-20230531204611180](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/image-20230531204611180.png)
 
@@ -892,7 +892,7 @@ graph TB
 ![image-20230531203620232](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/image-20230531203620232.png)
 
 + 可用于接口，类，参数类型，方法返回类型
-+ [使用实例](src/Generic/GenericUse.java)
++ [使用实例](src/generic/GenericUse.java)
 + 泛型只能是引用类型，如只能是Integer而不能是int
 + 传递泛型时可以传该类型也可以传该类型的子类
 + 未指定泛型时默认为Object
@@ -900,7 +900,7 @@ graph TB
 
 ## 自定义泛型
 
-+ [使用示例](src/Generic/GenericCustomed.java)
++ [使用示例](src/generic/GenericCustomed.java)
 
 ## 继承和通配
 
@@ -910,7 +910,7 @@ graph TB
 + <? extends AA>表示接受AA及AA的所有子类
 + <? super AA>表示支持AA及AA的父类
 
-# Thread
+# 线程
 
 ![image-20230531204321209](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/image-20230531204321209.png)
 
@@ -1132,32 +1132,32 @@ class Cat extends Thread {
 
 ## BufferedReader & BufferedWriter ***
 
-+ [BufferedReader](src/IOStream/BufferedReader_.java)
-+ [BufferedWriter](src/IOStream/BufferedWriter_.java)
++ [BufferedReader](src/iostream/BufferedReader_.java)
++ [BufferedWriter](src/iostream/BufferedWriter_.java)
 
 ## BufferedInputStream & BufferedOutputStream
 
 ## ObjectInputStream & ObjectOutputStream
 
-+ [ObjectInputStream使用实例](src/IOStream/ObjectInputStream_.java)
-+ [ObjectOutputStream使用实例](src/IOStream/ObjectOutputStream_.java)
-+ [细节](src/IOStream/Dog.java)
++ [ObjectInputStream使用实例](src/iostream/ObjectInputStream_.java)
++ [ObjectOutputStream使用实例](src/iostream/ObjectOutputStream_.java)
++ [细节](src/iostream/Dog.java)
 
 ## InputStreamReader & OutputStreamWriter
 
 + 可用来解决字符乱码问题
-+ [BufferedReader使用实例](src/IOStream/BufferedReader_.java)
++ [BufferedReader使用实例](src/iostream/BufferedReader_.java)
 
 ## PrintStream
 
 + 字节流
 
-+ [使用](src/IOStream/PrintStream_.java)
++ [使用](src/iostream/PrintStream_.java)
 
 ## PrintWriter
 
 + 字符流
-+ [使用](src/IOStream/PrintWriter_.java)
++ [使用](src/iostream/PrintWriter_.java)
 
 ## System.in & System.out
 
@@ -1168,19 +1168,84 @@ class Cat extends Thread {
 
 ## Properties
 
-+ [使用](src/IOStream/Properties_.java)
++ [使用](src/iostream/Properties_.java)
 
 # 反射
 
 ![image-20230531204445994](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/image-20230531204445994.png)
 
+## 反射获取类的结构信息
+
++ [代码](src/reflection/intro.java)
+
+## 反射相关类
+
++ java.lang.Class：代表一个类，Class对象表示某个类加载后在堆中创建的对象
++ java.lang.reflect.Method：类的方法
++ java.lang.reflect.Field：类的成员变量
++ java.lang.reflect.Constructor：类的构造器
+
+## 反射作用
+
++ 在运行时判断任意一个对象所属的类
++ 在运行时构造任意一个类所的对象
++ 在运行时构造任意一个类的所有成员变量和方法
++ 在运行时调用任意一个对象的成员变量和方法
++ 生成动态代理
+
+## 反射调用性能优化
+
++ 优点：可以动态的创建和使用对象（框架底层核心），使用灵活
++ 缺点：使用反射基本是解释执行，对执行速度有影响
++ 通过setAccessible方法设置参数值为true取消访问权限检查，提高效率；默认为false
+  + method、field、constructor均有此方法
+
+## Class类
+
+### 特点
+
++ Class类对象是系统创建（类加载器ClassLoader的loadClass方法）的，而不是new出来的
+
++ 一个类的Class对象内存中只能有一份。
+
+  > 比如new Cat()后，类便被加载了再调用 Class.forName(classpath) 则直接取现成的了。
+  >
+  > 可通过两个Class对象的hashCode的值发现是同一个Class对象
+
++ 每个类的实例都会知道自己是Class类对象生成的
+
+  > 这也是为什么实力可以通过getClass方法得知自己的运行类型的原因
+
++ 通过Class对象可以获得类的一系列结构，通过API
+
++ Class对象存放在堆
+
++ 类的字节码文件即Cat.class文件的二进制数据，是放在方法区的
+
+  + 也有人将此二进制数据称为元数据
+
+### 常用方法
+
 # JAVA8
 
 # MySQL
 
+# TODO
 
+Comparator中的compare函数 && Comparable接口的compareTo方法
 
+使用的地方
 
++ TreeSet和TreeMap要添加对象时，需要重写compare方法或者对象的类实现Comparable接口并重写compareTo方法
++ sort排序时重写compare方法
+
+原理
+
++ 返回值为0：不添加（认为重复）或 不排序（认为大小相等）
++ 返回值为正：新加入的o2放到已经在里面的o1的前面
++ 返回值为正：新加入的o2放到已经在里面的o1的后面
+
+comparator一般用于匿名内部类，comparable一般用于包装类
 
 
 
