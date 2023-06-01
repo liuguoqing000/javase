@@ -1174,18 +1174,18 @@ class Cat extends Thread {
 
 ![image-20230531204445994](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/image-20230531204445994.png)
 
-## 反射获取类的结构信息
+## 反射机制
 
-+ [代码](src/reflection/intro.java)
++ [入门](src/reflection/intro.java)
 
-## 反射相关类
+**反射相关类**
 
 + java.lang.Class：代表一个类，Class对象表示某个类加载后在堆中创建的对象
 + java.lang.reflect.Method：类的方法
 + java.lang.reflect.Field：类的成员变量
 + java.lang.reflect.Constructor：类的构造器
 
-## 反射作用
+**反射作用**
 
 + 在运行时判断任意一个对象所属的类
 + 在运行时构造任意一个类所的对象
@@ -1193,7 +1193,7 @@ class Cat extends Thread {
 + 在运行时调用任意一个对象的成员变量和方法
 + 生成动态代理
 
-## 反射调用性能优化
+**反射调用性能优化**
 
 + 优点：可以动态的创建和使用对象（框架底层核心），使用灵活
 + 缺点：使用反射基本是解释执行，对执行速度有影响
@@ -1222,9 +1222,36 @@ class Cat extends Thread {
 
 + 类的字节码文件即Cat.class文件的二进制数据，是放在方法区的
 
-  + 也有人将此二进制数据称为元数据
+    + 也有人将此二进制数据称为元数据
 
 ### 常用方法
+
++ [常用方法](src/reflection/CommonMethods.java)
+
+### 获得Class对象的四种方式
+
++ [示例](src/reflection/GetClass.java)
+
+| 阶段       | 前提                                                   | 应用场景                             |
+| ---------- | ------------------------------------------------------ | ------------------------------------ |
+| 编译阶段   | 已知全类名如“`java.lang.Cat`”，通过`Class.forName`获取 | 配置文件，读取类全路径，加载类       |
+| 类加载阶段 | 已知具体的类如Person，通过`Person.class`获取           | 参数传递如通过反射得到对应构造器对象 |
+| 运行阶段   | 已知某个类的实例，通过`o.getClass()`获取               | 通过创建好的对象获取Class对象        |
+| 类加载器   | 略                                                     | 略                                   |
+
+## 类加载
+
++ 静态加载：编译时加载相关的类，无论是否使用该类，没有则报错。依赖性过高
++ 动态加载：运行时加载相关的类，运行时不用该类则不报错，降低了依赖性
++ 反射是动态加载
++ 类加载时机：new、static、子类被加载时、反射。
+    + 其中，只有反射是动态加载
+
+## 反射获取类的结构信息
+
++ [Constructor](src/reflection/CreateInstance.java)
++ [Field](src/reflection/AccessProperty.java)
++ [Method](src/reflection/AccessMethod.java)
 
 # JAVA8
 

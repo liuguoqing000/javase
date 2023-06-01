@@ -42,7 +42,7 @@ public class intro {
         //1.无参构造器
         Constructor constructor = cls.getConstructor();
         System.out.println("无参构造器：" + constructor);
-        //2.有参构造器：若为构造器参数若为int类型，需要改为Integer，以和Integer.class一致
+        //2.有参构造器
         Constructor constructor1 = cls.getConstructor(Integer.class);//有参构造器
         System.out.println("有参构造器：" + constructor1);
     }
