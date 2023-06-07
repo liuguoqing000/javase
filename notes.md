@@ -461,7 +461,7 @@ class Cat {
 
 + 接口中所有属性均为 **`public static final `**
 
-+ 接口可以继承接口，注意是继承而是实现
++ 接口可以继承接口，注意是继承而不是实现
 
 ## 继承类 VS 实现接口
 
@@ -1253,26 +1253,118 @@ class Cat extends Thread {
 + [Field](src/reflection/AccessProperty.java)
 + [Method](src/reflection/AccessMethod.java)
 
-# JAVA8
-
 # MySQL
 
-# TODO
+## sql语句分类
 
-Comparator中的compare函数 && Comparable接口的compareTo方法
++ DDL：create
++ DML：insert、update、delete
++ DQL：select
++ DCL：grant、revoke
 
-使用的地方
+## 备份和恢复数据库
 
-+ TreeSet和TreeMap要添加对象时，需要重写compare方法或者对象的类实现Comparable接口并重写compareTo方法
-+ sort排序时重写compare方法
++ 备份数据库
 
-原理
+```bash
+# root为用户名；将db01和db02数据库的创建插入等语句存入到bak.sql文件中
+mysqldump -u root -p -B db01 db02 >d:\\mysql\\bak.sql
+# 备份表
+mysqldump -u root -p -B db01 table1 table2 >d:\\mysql\\bak.sql
+```
 
-+ 返回值为0：不添加（认为重复）或 不排序（认为大小相等）
-+ 返回值为正：新加入的o2放到已经在里面的o1的前面
-+ 返回值为正：新加入的o2放到已经在里面的o1的后面
++ 恢复数据库
 
-comparator一般用于匿名内部类，comparable一般用于包装类
+```bash
+source d:\\mysql\\bak.sql
+```
+
+## 数据类型
+
+**decimal[M,D]**
+
++ M表该数的总位数，D表示该数的小数位数
++ M最大为65，D最大为30
++ M缺省为10，D缺省为0
+
+**char(n) & varchar(n)**
+
++ char的n最大值为255；varchar的n最大值为65535；
++ n表示字符数，无论英文字母还是汉字，都是1个字符
++ char在值小于10时，会自动填充空格；而varchar则值为啥就存啥，只添加一个结束符
++ char效率更高，因为定长，以空间换时间；varchar则相反
+
+**date & datetime & timestamp**
+
+## 函数
+
++ 统计函数
++ 字符串函数
++ 数学函数
++ 日期函数
++ 字符串函数
++ 加密函数和系统函数
++ 流程控制函数
+
+> [0758_韩顺平Java_统计函数_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1fh411y7R8?p=759&vd_source=31a2c1c1b88c213ffcdc490b3eed651c)
+
+## 索引
+
++ 以空间换时间，提升select效率，减低增删改效率
++ 哪些列适合建立索引？
+    + 较频繁的作为查询条件
+    + 唯一性太差不建议建立
+    + 更新频繁的不建议
+    + 不会出现在where中的不建议
+
+## 事务
+
++ 隔离级别定义了事务间的隔离程度
+
++ 脏读：事务A读到了事务B未提交的修改
+
++ 不可重复读：设事务A中有多次查询，由于事务B提交的事务中的update操作，导致每次查询的结果集都不一样
+
++ 幻读：设事务A中有多次查询，由于事务B提交的事务中的insert//delete操作，导致每次查询的结果集都不一样
+
++ 隔离级别（4种）
+
+  | 隔离级别                             | 脏读 | 不可重复读/幻读 | 加锁读 |
+    | ------------------------------------ | ---- | --------------- | ------ |
+  | 读未提交 read uncommited             | √    | √               | 不加锁 |
+  | 读已提交 read committed              | ×    | √               | 不加锁 |
+  | 可重复读 repeatable read（默认情况） | ×    | ×               | 不加锁 |
+  | 可串行化 Serializable                | ×    | ×               | 加锁   |
+
+## 存储引擎
+
++ innodb：支持事务和外键、行级锁
++ myisam：添加速度快、不支持外键和事务、表级锁
++ memory：数据储存在内存而无需读取磁盘所以执行速度快，但一关闭mysql服务，则数据丢失
++ 存储引擎的选择
+    + 无需事务，处理的是基本的crud操作，选myisam
+    + 事务，选innodb
+    + 经常变化的数据如用户的在线状态等可以用memory
+
+## 用户权限管理
+
+```MYSQL
+/*用户管理*/
+CREATE USER 'guest'@'localhost' identified by '123456';
+DROP USER 'guest'@'localhost';
+set password = password('132456');#修改自己密码
+set password for 'guest'@'localhost' = password('132456');#修改别人密码
+
+/*权限管理*/
+GRANT ALL ON *.* TO 'guest'@'localhost';#授予该用户所有数据库的所有对象的所有权限
+REVOKE ALL ON *.* FROM 'guest'@'localhost';
+```
+
+# JAVA8
+
+# JDBC
+
+# 正则表达式
 
 
 
