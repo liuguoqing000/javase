@@ -11,7 +11,7 @@ import java.util.Properties;
  * @date 2023/6/1 09:02
  * @desc 通过反射访问field、method、class、constructor
  */
-public class intro {
+public class Intro {
     public static void main(String[] args) throws Exception {
         /* 读取配置文件 */
         Properties properties = new Properties();
