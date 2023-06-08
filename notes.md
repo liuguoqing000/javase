@@ -13,7 +13,7 @@
 ## 安装JDK配置环境变量
 
 - PATH环境变量(必需)： java 文件通过 PATH 中设定的 JDK 目录找到编译命令进行编译
-- CLASSPATH环境变量(必需)：指定类搜索路径，JVM通过CLASSPTH来寻找类
+- CLASSPATH环境变量(必需)：指定类搜索路径，JVM通过CLASSPATH来寻找类
 - JAVA_HOME环境变量(非必需)：即 JDK 安装的路径，idea等通过 JAVA_HOME 找到 JDK
 
 ## JDK/JRE/JVM
@@ -1302,7 +1302,6 @@ source d:\\mysql\\bak.sql
 + 字符串函数
 + 数学函数
 + 日期函数
-+ 字符串函数
 + 加密函数和系统函数
 + 流程控制函数
 
@@ -1360,11 +1359,13 @@ GRANT ALL ON *.* TO 'guest'@'localhost';#授予该用户所有数据库的所有
 REVOKE ALL ON *.* FROM 'guest'@'localhost';
 ```
 
-# JAVA8
-
-# JDBC
-
 # 正则表达式
+
+![屏幕截图 2023-06-08 113549](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-08%20113549.png)
+
+# JAVA8新特性
+
+![屏幕截图 2023-06-08 093907](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-08%20093907.png)
 
 
 
