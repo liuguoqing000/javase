@@ -1522,7 +1522,15 @@ REVOKE ALL ON *.* FROM 'guest'@'localhost';
 
 ## StreamAPI
 
-
++ StreamAPI关注的是数据的计算，集合关注的是数据的存储
++ StreamAPI之于集合，好比SQL置于数据表的查询
++ Stream执行流程
+  + Stream实例化
+    + 通过集合
+    + 通过数组
+    + 通过Stream的of()
+  + 中间操作
+  + 执行终止操作
 
 
 
