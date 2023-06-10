@@ -5,13 +5,12 @@ import org.junit.Test;
 import java.util.Comparator;
 import java.util.function.BiPredicate;
 import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
  * @author liuguoqing000
  * @date 2023/6/10 17:03
- * @desc
+ * @desc 方法引用
  */
 public class MethodReference {
 
