@@ -1,4 +1,4 @@
-package CommonClass;
+package commonclass;
 
 /**
  * @author 刘国庆

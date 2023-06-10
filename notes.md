@@ -665,9 +665,9 @@ class ageException extends RuntimeException {
   int k = integer;
   ```
 
-+ [包装类 <-> String类：Integer <-> String](src/CommonClass/IntToString.java)
++ [包装类 <-> String类：Integer <-> String](src/commonclass/IntToString.java)
 
-+ [常用方法](src/CommonClass/CommonWrapperMethods.java)
++ [常用方法](src/commonclass/CommonWrapperMethods.java)
 
 ## String & StringBuffer & StringBuilder
 
@@ -683,9 +683,9 @@ class ageException extends RuntimeException {
 
   > [练习P467 -P470](https://www.bilibili.com/video/BV1fh411y7R8/?p=468&spm_id_from=pageDriver&vd_source=31a2c1c1b88c213ffcdc490b3eed651c)
 
-+ [String常用方法](src/CommonClass/StringMethods.java)
++ [String常用方法](src/commonclass/StringMethods.java)
 
-  [StringBuffer常用方法](src/CommonClass/StringBufferMethods.java)
+  [StringBuffer常用方法](src/commonclass/StringBufferMethods.java)
 
 + 三者的区别
 
@@ -693,7 +693,7 @@ class ageException extends RuntimeException {
 
 ## Math
 
-+ [常用方法](src/CommonClass/MathMethod.java)
++ [常用方法](src/commonclass/MathMethod.java)
 
 + 随机数
 
@@ -705,9 +705,9 @@ class ageException extends RuntimeException {
 
 ## Arrays
 
-+ [常用方法1](src/CommonClass/ArraysMethod01.java)
++ [常用方法1](src/commonclass/ArraysMethod01.java)
 
-+ [常用方法2](src/CommonClass/ArraysMethod02.java)
++ [常用方法2](src/commonclass/ArraysMethod02.java)
 
 ## System
 
@@ -720,12 +720,12 @@ System.out.println("执行时间为：" + (end - start));
 
 ## BigInteger & BigDecimal
 
-+ [BigInteger使用](src/CommonClass/BigInteger_.java)
-+ [BigDecimal使用](src/CommonClass/BigDecimal_.java)
++ [BigInteger使用](src/commonclass/BigInteger_.java)
++ [BigDecimal使用](src/commonclass/BigDecimal_.java)
 
 ## Date & Calendar & LocalDateTime
 
-推荐使用LocalDateTime，[用法](src/CommonClass/Date.java)
+推荐使用LocalDateTime，[用法](src/commonclass/Date.java)
 
 ```java
 /* 如何获取当前日期 */
@@ -1456,27 +1456,67 @@ REVOKE ALL ON *.* FROM 'guest'@'localhost';
 
 + [结巴去重](src/regexp/Exercise01.java)
 
+## 字符串与正则
+
++ [字符串中的正则](src/regexp/Exercise02.java)
+
 # JAVA8新特性
 
 ![屏幕截图 2023-06-08 093907](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-08%20093907.png)
 
+## 函数式接口
 
++ 如果接口中只有一个抽象方法，则为函数式接口
 
+  ```java
+  @FunctionalInterface
+  public interface FunctionalInterface {
+      void run();
+  //    void run1();
+  }
+  ```
 
++ 只有给函数式接口提供实现类的对象时，才可以使用lambda表达式
 
++ 声明在java.util. function包下
 
++ **四大核心函数式接口**
 
+  | 函数式接口    | 称谓         | 参数类型 | 用途                                                         |
+    | ------------- | ------------ | -------- | ------------------------------------------------------------ |
+  | Consumer<T>   | 消费型接口   | T        | 对类型为T的对象进行操作。void accept(T t)                    |
+  | Supplier<T>   | 攻供给性接口 | 无       | 返回类型为T的对象。T get()                                   |
+  | Function<T,R> | 函数型接口   | T        | 对类型为T的对象操作，并返回类型为R的对象。R apply(T t)       |
+  | Predicate<T>  | 判断型接口   | T        | 确定类型为T的对象是否满足某约束，并返回布尔值。boolean test(T t) |
 
+## lambda表达式
 
++ 适用于函数式接口
 
++ 定义
+    + ->：lambda操作符或箭头操作符
+    + -> 的左边：lambda形参列表。对应着要重写的接口中的抽象方法的形参列表
+    + -> 的右边：lambda体。对应要重写的接口中的抽象方法的方法体
++ [格式](src/java8/lambda.java)
++ 本质
+    + 作为接口的实现类的对象。一切皆对象
+    + lambda表达式是一个匿名函数
 
+## 方法引用
 
++ lambda表达式的进一步刻画
++ 格式
+    + 实例名 :: 实例方法
+        + 要求函数式接口中的抽象方法a与a所调用的方法b的参数列表和返回值一致
+        + 使用方法b实现对a的替换、覆盖。此即为方法引用
+    + 类名 :: 静态方法
+        + 与上一致，但b为静态方法
+    + 类名 :: 实例方法
+        + 要求函数式接口中的抽象方法a与a所调用的方法b的返回值类型一致
+        + 同时，抽象方法a中有n个参数，方法b中有n-1个参数。a的第1个参数作为方法b的调用者，剩下n-1个参数与b的n-1个参数的类型一致
++ [示例](src/java8/MethodReference.java)
 
-
-
-
-
-
+## 构造器引用&数组引用
 
 
 

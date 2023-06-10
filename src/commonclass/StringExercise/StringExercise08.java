@@ -1,4 +1,4 @@
-package CommonClass.StringExercise;
+package commonclass.StringExercise;
 
 /**
  * @author 韩顺平

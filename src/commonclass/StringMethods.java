@@ -1,6 +1,4 @@
-package CommonClass;
-
-import java.sql.SQLOutput;
+package commonclass;
 
 /**
  * @author 刘国庆

@@ -1,4 +1,4 @@
-package CommonClass;
+package commonclass;
 
 import java.util.Arrays;
 import java.util.List;
