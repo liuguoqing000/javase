@@ -5,10 +5,6 @@ import org.junit.Test;
  * @version 1.0
  */
 public class Module {
-    public static void main(String[] args) {
-
-    }
-
     /* 1. */
     @Test
     public void m1() {

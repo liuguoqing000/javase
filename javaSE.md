@@ -519,6 +519,8 @@ class Cat {
 
 ## [enum常用方法](src/enum_/EnumMethod.java)
 
++ [实例](src/enum_/EnumMethod.java)
+
 ## @Override
 
 + 只可用于方法
@@ -1469,7 +1471,7 @@ REVOKE ALL ON *.* FROM 'guest'@'localhost';
 
 + [字符串中的正则](src/regexp/Exercise02.java)
 
-# lambda
+# lambda & 方法引用
 
 ![屏幕截图 2023-06-08 093907](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-08%20093907.png)
 
@@ -1572,8 +1574,45 @@ REVOKE ALL ON *.* FROM 'guest'@'localhost';
 # 新语法结构
 
 + [try-catch](src/new_features/try_catch.java)
+
 + [局部变量类型推断](src/new_features/VarTest.java)
-+ 
+
++ [instanceof](src/new_features/instance_of.java)
+
++ [switch](src/new_features/switch_.java)
+
+  + -> 替代 break
+  + yield返回值使switch成为表达式
+
++ 文本块
+
+  ```java
+  //3个引号表示
+  //\表示不换行，\s为空格
+  String str = """
+      select *
+      from sc
+      where grade>80;
+  	""";
+      
+  String str = """
+      select * 
+      from sc \
+      where grade>80;
+  	""";
+  ```
+
++ record类
+
++ sealed密封类
+
++ jShell命令行
+
++ optional容器
+
+  + 避免出现空指针异常
+  + [实例化及常用方法](src/new_features/optional.java)
+
 
 
 
