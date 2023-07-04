@@ -1,4 +1,4 @@
-package java8;
+package lambda;
 
 import org.junit.Test;
 
@@ -37,23 +37,22 @@ public class MethodReference {
         System.out.println(sup2.get());
     }
 
-
-    // 格式3  类::实例方法
+    // 格式2：类 :: 静态方法
     @Test
     public void m2() {
-        Comparator<String> com = new Comparator<>() {
+        Comparator<Integer> com = new Comparator<>() {
             @Override
-            public int compare(String o1, String o2) {
-                return o1.compareTo(o2);
+            public int compare(Integer o1, Integer o2) {
+                return Integer.compare(o1, o2);
             }
         };
 
         // lambda
-        Comparator<String> com1 = (s1, s2) -> s1.compareTo(s2);
+        Comparator<Integer> com1 = (o1, o2) -> Integer.compare(o1, o2);
 
         // 方法引用
-        Comparator<String> com2 = String::compareTo;
-        System.out.println(com2.compare("abc", "acb"));
+        Comparator<Integer> com2 = Integer::compare;
+        System.out.println(com2.compare(1, 2));
 
     }
 
@@ -78,28 +77,7 @@ public class MethodReference {
     }
 
 
-    // 格式3  类::实例方法
-    @Test
-    public void m4() {
-
-        BiPredicate<String, String> bip = new BiPredicate<>() {
-            @Override
-            public boolean test(String o1, String o2) {
-                return o1.equals(o2);
-            }
-        };
-
-        // lambda
-        BiPredicate<String, String> bip1 = (o1, o2) -> o1.equals(o2);
-
-        // 方法引用
-        BiPredicate<String, String> bip2 = String::equals;
-        System.out.println(bip2.test("abc", "abc"));
-    }
-
-
     public String getName() {
-        String name = "lgq";
-        return name;
+        return "lgq";
     }
 }

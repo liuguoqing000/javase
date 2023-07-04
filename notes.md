@@ -90,6 +90,15 @@ new car().getClass().getSimpleName();//获取类名
 new car().getClass();//获取包名及类名
 ```
 
+## 时间日期
+
+```
+Date date = new Date();
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+System.out.println(sdf.format(date));
+//大写H表示24小时制，小写h表示12小时制
+```
+
 # OOP
 
 ## 继承
@@ -1145,8 +1154,8 @@ class Cat extends Thread {
 
 ## InputStreamReader & OutputStreamWriter
 
-+ 可用来解决字符乱码问题
-+ [BufferedReader使用实例](src/iostream/BufferedReader_.java)
++ 可通过指定字符集来解决字符乱码问题
++ [InputStreamReader使用实例](src/iostream/InputStreamReader_.java)
 
 ## PrintStream
 
@@ -1460,7 +1469,7 @@ REVOKE ALL ON *.* FROM 'guest'@'localhost';
 
 + [字符串中的正则](src/regexp/Exercise02.java)
 
-# JAVA8新特性
+# lambda
 
 ![屏幕截图 2023-06-08 093907](https://liuguoqing001.oss-cn-hangzhou.aliyuncs.com/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-08%20093907.png)
 
@@ -1482,12 +1491,12 @@ REVOKE ALL ON *.* FROM 'guest'@'localhost';
 
 + **四大核心函数式接口**
 
-  | 函数式接口    | 称谓         | 参数类型 | 用途                                                         |
-    | ------------- | ------------ | -------- | ------------------------------------------------------------ |
-  | Consumer<T>   | 消费型接口   | T        | 对类型为T的对象进行操作。void accept(T t)                    |
-  | Supplier<T>   | 攻供给性接口 | 无       | 返回类型为T的对象。T get()                                   |
-  | Function<T,R> | 函数型接口   | T        | 对类型为T的对象操作，并返回类型为R的对象。R apply(T t)       |
-  | Predicate<T>  | 判断型接口   | T        | 确定类型为T的对象是否满足某约束，并返回布尔值。boolean test(T t) |
+  | 函数式接口    | 称谓       | 方法              | 用途                                        |
+    | ------------- | ---------- | ----------------- | ------------------------------------------- |
+  | Consumer<T>   | 消费型接口 | void accept(T t)  | 对类型为T的对象进行操作                     |
+  | Supplier<T>   | 供给性接口 | T get()           | 返回类型为T的对象                           |
+  | Function<T,R> | 函数型接口 | R apply(T t)      | 对类型为T的对象操作，并返回类型为R的对象    |
+  | Predicate<T>  | 判断型接口 | boolean test(T t) | 确定类型为T的对象是否满足某约束；返回布尔值 |
 
 ## lambda表达式
 
@@ -1497,10 +1506,12 @@ REVOKE ALL ON *.* FROM 'guest'@'localhost';
     + ->：lambda操作符或箭头操作符
     + -> 的左边：lambda形参列表。对应着要重写的接口中的抽象方法的形参列表
     + -> 的右边：lambda体。对应要重写的接口中的抽象方法的方法体
-+ [格式](src/java8/lambda.java)
+
 + 本质
     + 作为接口的实现类的对象。一切皆对象
     + lambda表达式是一个匿名函数
+
+[6种格式](src/lambda/lambda.java)
 
 ## 方法引用
 
@@ -1514,23 +1525,57 @@ REVOKE ALL ON *.* FROM 'guest'@'localhost';
     + 类名 :: 实例方法
         + 要求函数式接口中的抽象方法a与a所调用的方法b的返回值类型一致
         + 同时，抽象方法a中有n个参数，方法b中有n-1个参数。a的第1个参数作为方法b的调用者，剩下n-1个参数与b的n-1个参数的类型一致
-+ [示例](src/java8/MethodReference.java)
+
+[示例](src/lambda/MethodReference.java)
 
 ## 构造器引用&数组引用
 
-+ [使用示例](src/java8/ConArrReference.java)
++ [使用示例](src/lambda/ConArrReference.java)
 
-## StreamAPI
+# Stream
 
 + StreamAPI关注的是数据的计算，集合关注的是数据的存储
 + StreamAPI之于集合，好比SQL置于数据表的查询
+
 + Stream执行流程
-  + Stream实例化
-    + 通过集合
-    + 通过数组
-    + 通过Stream的of()
-  + 中间操作
-  + 执行终止操作
+    + Stream实例化
+        + 通过集合
+        + 通过数组
+        + 通过Stream的of()
+    + 中间操作
+    + 执行终止操作
+
+## Stream实例化
+
++ 通过集合
++ 通过数组
++ 通过Stream的of()
+
+[示例](src/stream_/CreateStream.java)
+
+## Stream中间操作
+
++ 筛选和切片
++ 映射
++ 排序
+
+[示例](src/stream_/StreamOperation.java)
+
+## Stream终止操作
+
++ 匹配和查找
++ 归约
++ 收集
+
+[示例](src/stream_/StreamStop.java)
+
+# 新语法结构
+
++ [try-catch](src/new_features/try_catch.java)
++ [局部变量类型推断](src/new_features/VarTest.java)
++ 
+
+
 
 
 

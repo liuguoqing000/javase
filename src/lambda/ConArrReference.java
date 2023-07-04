@@ -1,4 +1,4 @@
-package java8;
+package lambda;
 
 import org.junit.Test;
 
@@ -39,8 +39,19 @@ public class ConArrReference {
     // 数组引用
     @Test
     public void m3() {
-        Function<Integer, Employee[]> f = Employee[]::new;
-        Employee[] employees = f.apply(3);
+        // 1.常规写法
+        Function<Integer, Employee[]> f1 = new Function<Integer, Employee[]>() {
+            @Override
+            public Employee[] apply(Integer i) {
+                return new Employee[i];
+            }
+        };
+        // 2.lambda
+        Function<Integer, Employee[]> f2 = (i) -> new Employee[i];
+        // 3.方法引用
+        Function<Integer, Employee[]> f3 = Employee[]::new;
+
+        Employee[] employees = f3.apply(3);
         for (Employee employee : employees) {
             employee = new Employee();
             System.out.println(employee);

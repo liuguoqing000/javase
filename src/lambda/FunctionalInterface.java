@@ -1,6 +1,4 @@
-package java8;
-
-import java.util.Comparator;
+package lambda;
 
 /**
  * @author liuguoqing000
